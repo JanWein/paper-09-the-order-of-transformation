@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the paper when using this research or its code."
+type: article
+title: "The Order of Transformation:: Learning, Remediation, and the Option to Stop"
+authors:
+  - family-names: Weinert
+    given-names: Jan-Hendrik
+    name-particle: ""
+version: "F1"
+date-released: 2026-10-19
+url: "https://github.com/JanWein/paper-09-the-order-of-transformation"

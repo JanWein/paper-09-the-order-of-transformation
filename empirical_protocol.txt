@@ -1,0 +1,167 @@
+PROPOSED PRE-ANALYSIS PROTOCOL, CENTRAL R1 REVISION
+The Order of Transformation, 17 October 2026
+Status: design specification. Not registered, recruited, approved, or executed.
+This protocol accompanies the complete discussion in the manuscript protocol and dictionary appendices.
+
+QUESTION AND UNIT
+Compare two implementation policies for data remediation and decision support in
+repeated replenishment forecasting. Unit: operational team with independent manager,
+pipeline and inventory responsibility. Merge shared-staff/shared-inventory units into
+larger assignment clusters before randomization. Population inference targets equal
+weight over eligible teams; a separately declared capacity-weighted contrast is secondary.
+No firm or partner has committed units or granted access.
+
+ELIGIBILITY
+Lock the roster after four baseline weeks. Require complete decision/accounting logs,
+a repeatable manual process, shadow-scoring ability, and frozen outcome definitions.
+Do not exclude units after seeing treatment responses. Record baseline source quality,
+team size, operating performance, staff and readiness. Preserve the full assignment roster.
+
+COMPONENTS AND TIMING
+F: frozen source-defect remediation list, validation tests, ownership, freshness checks.
+A: one engine/interface version, workflow integration, training and recommendation logs.
+Dates are synchronized across arms; exact dates must be frozen before allocation.
+Weeks -4 to -1: baseline. Weeks 1-4: first component. Weeks 5-8: second component.
+Weeks 9-16: common completed-system observation; endpoint is weeks 13-16.
+F-first: F in phase 1, A in phase 2. Tools-first: A in phase 1, F in phase 2.
+Maintain existing installed components. Both get the same completed-system validation
+block at the end of week 8. The early tools demo is inside A's fixed budget; F-first
+gets the same A onboarding allocation on its later arrival. Thus early exposure differs.
+Neither final capital equality nor equal nominal budget means equal information histories.
+To match the baseline model, F-first onboarding consists of orientation and unscored
+practice, with only the common scored validation before follow-up. If onboarding
+requires an extra scored q1 trial, the appropriate alternative model gives F-first
+two scored q1 trials; tools-first can no longer dominate its willingness state.
+Freeze this distinction before assignment and audit feedback actually observed.
+No simultaneous arm is included. Week 25-28 follow-up is exploratory unless funded
+and specified before randomization.
+
+BUDGET AND TECHNICAL ACCEPTANCE
+Fixed implementation-hour and purchased-service allocations for each component,
+independent of order. Count actual labor, downtime, training, demonstrations and extra
+remediation in a cost ledger. Decision rights, incentives and tool version are fixed.
+Both arms must pass every prespecified critical-field acceptance test. Report residual
+quality with uncertainty. Failure to reject a quality gap is not evidence of equivalence.
+If final technical quality differs materially, interpret ITT as a rollout/fidelity policy
+effect, not evidence of path dependence under matched final resources.
+
+ASSIGNMENT
+1:1 within locked blocks: site, source defects, size, baseline outcome. Prefer blocks
+of four; document any incomplete block handling before drawing allocation. Generate
+an auditable seed only after roster lock. Allocation is at team/merged-cluster level.
+
+PRIMARY POTENTIAL OUTCOME AND ESTIMAND
+s=(order, phase dates, assigned intensity, validation schedule).
+Y_i,T(s): contribution per baseline-capacity week at weeks 13-16. Freeze baseline
+capacity, contribution weights and all unit accounting rules before assignment.
+Contribution subtracts inventory, stockout, labor and operating costs; installation
+costs enter NPV rather than being double-counted in this endpoint.
+Delta_T = E[Y_i,T(s_F)-Y_i,T(s_T)], equal team weighting, intention to treat.
+It is a sequence-policy effect, not an equal-exposure order effect or mediator effect.
+
+SECONDARY ECONOMIC ESTIMANDS
+Cumulative transition welfare weeks 1-8, including phase costs.
+Total NPV weeks 1-16. Baseline-period real currency; freeze labor/accounting prices.
+Annual real discount 5%, weekly factor (1.05)^(-1/52); sensitivities 0% and 10% annual.
+Report undiscounted transition contribution separately. Model beta=.95 is illustrative
+and not a weekly calibration. Extrapolated continuation values are separately labeled
+assumption-based projections, never empirical results.
+
+MEASUREMENTS
+Usage and availability separately; recommendations shown, task attempts, scored feedback
+actually observed, downtime, defect rates, training, turnover, abandonment, common-task
+loss, incentivized reliance/request behavior, expected accuracy and survey trust.
+Abandonment means no voluntary use over two consecutive eligible weeks, not no access.
+Survey trust is secondary and cannot alone identify the model state.
+
+PRIMARY ANALYSIS
+Team-level ANCOVA on the locked endpoint, treatment + block indicators + baseline
+endpoint; intention to treat. Report estimate, confidence interval, and block-respecting
+randomization test of the sharp null. Use actual assignment probabilities and structure.
+Do not treat team-week rows as independent. With few clusters, emphasize randomization
+inference and limitations. Confirmatory endpoint tested two-sided at alpha=.05.
+
+MULTIPLICITY AND HETEROGENEITY
+Holm across use, behavioral reliance, decision error, survey trust, abandonment.
+Economic secondary summaries receive intervals; significance claims across primary,
+transition welfare and NPV use Holm. The primary contrast remains explicitly identified
+as primary. Continuous baseline-readiness interaction exploratory; no optimal cutpoint
+search. Distinguish a null average from absence of heterogeneous effects.
+
+EXPOSURE ACCOUNTING
+Log calendar access, cumulative availability, scored opportunities, technical intensity,
+training and actual use. Show calendar trajectories and descriptive exposure trajectories.
+Do not condition the primary ITT on post-treatment experience. Equal dates, equal exposure
+and identical histories cannot all be imposed. Exposure is policy-dependent; regressions
+controlling it do not generally identify mediation. No unrestricted causal decomposition
+into time, skill and trust is identified by this two-policy design.
+
+OPTIONAL MECHANISM RESCUE
+Only after the primary endpoint: independently randomize an extra genuine scored
+validation block to ALL teams, stratified by original assignment and baseline readiness.
+Separately budget and define an endpoint before rescue assignment. Estimate rescue ITT
+and sequence interaction. Do not claim an isolated trust effect: skill, attention and
+incentive understanding may also change. If a separate nonuser-only pilot is run, its
+selected population is not a common principal stratum across original sequence arms.
+
+THREATS AND IDENTIFICATION
+Consistency: versions, intensities, schedules and follow-up defined.
+Exchangeability: audited randomized sequence assignment. Positivity within every block.
+Interference: no interference beyond the merged assignment cluster; log contamination.
+Common time shocks: synchronized phases; arm-specific shocks remain possible.
+Selection: no completer-only headline results. Turnover is policy-dependent composition.
+Measurement: blind benchmark scoring, immutable denominator, fixed cost weights.
+Missing outcomes: distinguish closure, true zero and unrecorded accounts. Closure gets
+a predeclared terminal accounting value, never silently zero or deletion. Show missingness
+by arm and reason. Report justified bounded-outcome sensitivity intervals; MAR imputation
+only under an explicit defensible assumption. Wide bounds mean causal precision is absent.
+
+POWER AND FEASIBILITY
+No pilot variance is known. Synthetic stationary outcome variance and AR(1) assumptions
+imply 80% MDE .635 at N=96; .492 if baseline R2=.4 is real. At synthetic effect .2214,
+approximately 790 teams, or 474 with that adjustment, are required before attrition and
+multiplicity. These are normal planning approximations, not a funded cluster count.
+Obtain blinded baseline variance, currency-valued minimum worthwhile effect, implementation
+capacity, data agreements and site permission before fixing sample size. A small pilot
+can assess fidelity/measurement; it cannot establish the modest effect in this illustration.
+
+FALSIFICATION AND INTERPRETATION
+An exposure-saturation disappearance is timing/learning evidence, not permanent path
+dependence. Persistent final-quality gaps indicate fidelity, not the hypothesized state.
+Measure optional feedback requests on common tasks. Test whether genuine validation
+changes reliance and outcomes with adequate precision. Reversal supports an experience
+pathway but is not proof of trust mediation. Finite persistence never proves permanence.
+A null with wide confidence intervals is inconclusive. Rational avoidance of bad advice
+is not a failure to be data-driven.
+
+DATA ACCESS
+No authorized operational data. MOPS public documentation/tables are candidate descriptive
+context, while linked confidential Census microdata require approved access. No application
+was made. PITEC is a literature-based descriptive candidate; current access not verified.
+Neither dataset supplies the randomized, dense exposure/behavior history required here.
+
+FIELD RESULT SHELL
+Primary ITT: NOT COLLECTED. Transition welfare: NOT COLLECTED.
+NPV: NOT COLLECTED. Behavioral reliance: NOT COLLECTED. Rescue ITT: NOT COLLECTED.
+
+CENTRAL R1: SEPARATE THEORETICAL COMPARISONS
+The main article now solves a Bayesian diagnosis/remediation model. The original
+field design above identifies its stated rollout-policy ITT, not the new structural
+parameters or the screening-versus-diagnosis decomposition. The generic carryover
+simulation is a nonstructural inference stress test, not trust validation.
+An equal-count theoretical benchmark assigns one shadow diagnostic per ordered
+policy, with production on common dates; early and late diagnostic precision can
+differ. A compulsory-completion design removes the option to avoid remediation.
+A separate adaptive stopping design would have to randomize complete policy rules
+that explicitly permit no repair and count all assigned teams, including those
+that stop. Restricting analysis to repaired teams would condition on treatment.
+Neither variant has been run or recruited.
+
+For rational-mechanism measurement, record elicited expected FINAL performance
+before and after observed physical repair, beliefs about persistent effectiveness,
+knowledge of repair success, and verified public validation results. Record
+validation fees, delays, precision and all disclosures. A known reset or free
+revealing validation predicts disappearance of history-based posterior differences
+under the stated rational model; installation alone need not. High-type false
+negatives conditional on bad history are not evidence that extra information
+lowers ex-ante optimized welfare. These are theory-derived hypotheses only.

@@ -1,0 +1,149 @@
+\section{Exact cost regions: when the early diagnostic beats every alternative}\label{sec:regions}
+The identity (\ref{eq:frontier}) is inherited positive-part accounting, not an originality claim. The decision margin solved here is more specific: which physical, certificate and equal assigned pilot costs make an early diagnostic strictly or weakly optimal against \emph{all three} feasible alternatives? All continuation values below already optimize production and certification.
+
+Write $t=\bar a$, $r=1-t$, $q_+=p_0a_H/t$, $q_-=p_0(1-a_H)/r$, and $q_\pm(\zeta)=p_0+(1-\zeta)(q_\pm-p_0)$. Define
+\begin{equation}
+ L=W(q_-(\zeta);k),\quad M=W(p_0;k),\quad U=W(q_+(\zeta);k),\quad N=E_bW(p_b;k),\quad A=tU+rL.\label{eq:LMUN}
+\end{equation}
+Thus $L\leq M\leq U$, and under (\ref{eq:garbling}), $N\geq A\geq M$. Hereafter $d_T=d_F=d\geq0$. In this section $d$ denotes pilot cost; the success-probability difference in Proposition~\ref{prop:bayes} is $\Delta=b_H-b_L$.
+
+\begin{proposition}[A selective-remediation cost window]\label{prop:window}
+Suppose the early binary diagnostic is a garbling of the completed-system diagnostic, with $0<t<1$. Define the three cost cutoffs
+\begin{equation}
+ F=\frac{N-tU}{r},\qquad G=\frac{M-tU+d}{r},\qquad Q=U-\frac d t.\label{eq:FGQ}
+\end{equation}
+Tools-first strictly beats foundations-first, direct remediation \emph{and} no remediation if and only if
+\begin{equation}
+ \boxed{\quad \max\{F,G\}<K<Q.\quad}\label{eq:window}
+\end{equation}
+This window is nonempty if and only if
+\begin{equation}
+ d<\bar d:=t\min\left\{U-M,\frac{U-N}{r}\right\}.\label{eq:dbar}
+\end{equation}
+A negative or zero $\bar d$ leaves no strict optimum for any nonnegative pilot cost. Whenever (\ref{eq:window}) holds, the early failure history is abandoned and the success history is repaired. The two lower cutoffs bind against foundations-first and direct repair respectively; the upper cutoff binds against no repair. Thus avoiding a sunk expenditure is insufficient: the success continuation must also justify the assigned pilot relative to both direct entry and doing nothing.
+\end{proposition}
+\begin{proof}
+If $K\leq L$, tools-first repairs after either signal and $J_T-J_F=A-N\leq0$. If $K\geq U$, its value is $-d\leq0$. Hence strict optimality requires $L<K<U$, where $J_T=t(U-K)-d$. Its strict comparisons with $J_0=0$, $M-K$, and $J_F=N-K-d$ give, respectively, $K<Q$, $K>G$, and $K>F$. A positive $J_T$ beating $M-K$ also beats $[M-K]_+$, so no direct option has been dropped. Conversely these inequalities imply $F\geq L$ because $N\geq tU+rL$, and $Q\leq U$; they place $K$ in the selective branch and prove sufficiency. Finally $F<Q$ is equivalent to $d<t(U-N)/r$, and $G<Q$ to $d<t(U-M)$. Their conjunction is exactly (\ref{eq:dbar}). All steps are equivalences, including $d=0$.
+\end{proof}
+
+For completeness, the following closed partition gives \emph{weak} optimality, including degeneracies and even without the garbling restriction. A tools-first value is weakly optimal exactly on the union of these rows; the domain is always $K,k,d\geq0$.
+\begin{center}\small
+\begin{tabular}{p{.20\linewidth}p{.70\linewidth}}
+\toprule Physical-cost branch & Necessary and sufficient additional conditions\\\midrule
+$0\leq K\leq L$ & $A\geq N$, $d\leq A-M$, and $K\leq A-d$.\\
+$L\leq K\leq M$ & $K\geq F$, $K\geq G$, and $K\leq Q$.\\
+$M\leq K\leq U$ & $K\geq F$ and $K\leq Q$.\\
+$K\geq U$ & $d=0$ and $K\geq N$.\\\bottomrule
+\end{tabular}
+\end{center}
+To prove the first row, $J_T=A-K-d$ must exceed $0$, $M-K$ and $N-K-d$. The next two rows compare $t(U-K)-d$ with those same alternatives, noting that direct repair is zero on the third branch. On the last branch $J_T=-d$ can beat zero only at $d=0$, after which $K\geq U\geq M$ and comparison with $J_F$ gives $K\geq N$. Shared endpoints agree because the values are continuous. This proves the full partition, including every stopped history. Under garbling, replacing the strict window's inequalities by weak ones covers the selective branch; the first and last rows supply additional ties which must not be discarded. A zero-width interval can be weakly optimal but never strictly optimal. Equality at $F$, $G$, or $Q$ ties the indicated competitor whenever that bound is active. Certificate purchase ties at $D(p)=k$ alter actions but not these values. The safe tie convention is retained.
+
+\subsection{Baseline primitive fee partition and exact physical-cost cutoffs}\label{sec:baselinepartition}
+Use the declared synthetic baseline $p_0=1/2$, $a_H=3/5$, $a_L=2/25$, $b_H=9/10$, $b_L=1/10$, $c=1/2$, $\delta=9/10$, initially $\zeta=0$. Then $t=17/50$, $r=33/50$, $q_+=15/17$, $q_-=10/33$, while the late posteriors are $9/10$ and $1/10$, each with weight $1/2$. Set
+\[
+ u=2497/4250,\qquad v=57/85,\qquad w=38/165,\qquad n=38/125.
+\]
+Direct evaluation of $D(p)=19p/25-V_2(p)$ gives the \emph{actual} certificate-fee breakpoints
+\begin{align*}
+ \kappa_b&=D(1/10)=D(9/10)=19/250,\\
+ \kappa_+&=D(15/17)=353/4250,\\
+ \kappa_-&=D(10/33)=38/165,\\
+ \kappa_0&=D(1/2)=59/250,
+\end{align*}
+ordered $\kappa_b<\kappa_+<\kappa_-<\kappa_0$. They are not fitted trust coefficients. The optimized entry values are exactly:
+\begin{center}\small
+\begin{tabular}{lllll}\toprule
+Certificate fee $k$ & $L$ & $M$ & $U$ & $N$\\\midrule
+$[0,\kappa_b]$ & $w-k$ & $19/50-k$ & $v-k$ & $19/50-k$\\
+$[\kappa_b,\kappa_+]$ & $w-k$ & $19/50-k$ & $v-k$ & $n$\\
+$[\kappa_+,\kappa_-]$ & $w-k$ & $19/50-k$ & $u$ & $n$\\
+$[\kappa_-,\kappa_0]$ & $0$ & $19/50-k$ & $u$ & $n$\\
+$[\kappa_0,\infty)$ & $0$ & $18/125$ & $u$ & $n$\\\bottomrule
+\end{tabular}
+\end{center}
+Adjacent rows agree at every endpoint. The late expectation $N$ accounts for certification after either late signal, including an unfavorable one; it is not just the value after success.
+
+To make (\ref{eq:window}) an explicit primitive-cost characterization, its lower cutoffs reduce to
+\begin{align}
+ F(k)&=\begin{cases}w-k,&k\leq\kappa_b,\\
+ (19/250+tk)/r,&\kappa_b\leq k\leq\kappa_+,\\
+ 1303/8250,&k\geq\kappa_+,
+ \end{cases}\label{eq:Fbase}\\
+ G(k,d)&=\begin{cases}w-k+d/r,&k\leq\kappa_+,\\
+ (2253/12500-k+d)/r,&\kappa_+\leq k\leq\kappa_0,\\
+ (d-697/12500)/r,&k\geq\kappa_0.
+ \end{cases}\label{eq:Gbase}
+\end{align}
+The upper cutoff is $Q=v-k-d/t$ for $k\leq\kappa_+$ and $Q=u-d/t$ thereafter. The active lower bound is $G$ when $d>N-M$ and $F$ when $d<N-M$, with a tie at equality. In particular $G$ binds at cheap fees $k\leq\kappa_b$ for $d>0$, and for $\kappa_b\leq k\leq\kappa_0$ the switch is $k=\kappa_b+d$. These formulas, together with (\ref{eq:window}), are exact inequalities in $(K,k,d)$ rather than a numerical policy map.
+
+The existence ceiling in (\ref{eq:dbar}) simplifies further:
+\begin{equation}
+ \bar d(k)=\begin{cases}
+ 247/2500,&0\leq k\leq\kappa_+,\\
+ 441/6250+(17/50)k,&\kappa_+\leq k\leq916/4125,\\
+ 241/1650,&k\geq916/4125.
+ \end{cases}\label{eq:dbarbase}
+\end{equation}
+The additional breakpoint $916/4125$ equates the two \emph{policy} constraints in (\ref{eq:dbar}); it is not a certificate-purchase threshold. Equations (\ref{eq:Fbase})--(\ref{eq:dbarbase}) follow by substitution of the table into (\ref{eq:FGQ})--(\ref{eq:dbar}); equating $U-M$ with $(U-N)/r$ gives that final breakpoint. This also proves the fee partition without invoking a plotted grid.
+
+\begin{corollary}[Cheap validation can exclude every early-pilot cost window]
+For the baseline, take $247/2500\leq d<241/1650$. There exists a physical cost $K$ making tools-first strictly optimal if and only if
+\[
+ k>\frac{50}{17}\left(d-\frac{441}{6250}\right).
+\]
+At or below that fee there is no strict tools-first region for any $K$. If $d\geq241/1650$, no fee opens a strict region. If $0\leq d<247/2500$, every nonnegative fee permits some strict region. Raising the certificate fee never raises the planner's optimized welfare, despite this possible expansion in the set of pilot costs admitting tools-first.
+\end{corollary}
+\begin{proof}
+Invert the three continuous branches of (\ref{eq:dbarbase}) with the strict existence test $d<\bar d(k)$. At $d=247/2500$ the fee threshold equals $\kappa_+$; at the excluded upper endpoint it equals $916/4125$. Finally each $W(p;k)$ is weakly decreasing in $k$, hence so is each of the four menu values and their maximum. The relative choice effect is substitution away from cheap direct validation, not a welfare gain from expensive information.
+\end{proof}
+
+For $d>0$ in this baseline the complete weak-optimum region is
+\[
+ d\leq\bar d(k),\qquad \max\{F(k),G(k,d)\}\leq K\leq Q(k,d).
+\]
+At $d=\bar d(k)$ the interval is a singleton, tied with no repair and at least one other policy; for $d>\bar d(k)$ it is empty. There are no missing both-repair ties for $d>0$: $A=N$ is possible only at $k\leq\kappa_b$, where $A=M$ and the first row of the general weak partition would require $d=0$. For $d=0$ and $k\leq\kappa_b$, tools-first is weakly optimal for every $K\geq0$. For $d=0$ and $k>\kappa_b$, it is weakly optimal exactly for $K\geq F(k)$, including the no-activity tail $K\geq U$. Strict optimality is always the open window (\ref{eq:window}), with $d<\bar d(k)$. These zero-cost tails illustrate why a strict-region plot cannot characterize ties.
+
+There is a nonempty \emph{open} tools-first region against every alternative: every $k\in(.14,.16)$, $d\in(.009,.011)$, and $K\in(.19,.21)$ satisfies (\ref{eq:window}). Throughout this box $F=1303/8250<.19$, $G\leq(.18024-.14+.011)/.66< F$, and $Q\geq u-.011/.34>.21$. This is an analytic witness, not an isolated numerical maximization. At $k=.15,d=.01$ the exact strict interval is
+\[
+ 1303/8250<K< u-1/34=2372/4250.
+\]
+The example $K=.20$ inside it is checked below. Physical expenditure remains zero on the abandoned history and $K$ on the repaired one; equal \emph{assigned} exposure does not assert equal realized repair expenditure.
+
+\subsection{Persistence, reset, and a finite primitive certificate}\label{sec:resetregions}
+\begin{proposition}[Reset contracts the early-diagnostic region]\label{prop:resetregion}
+Hold $p_0,a_H,a_L,b_H,b_L,c,\delta,k,d$ fixed, with $a_H>a_L$ and the early experiment at $\zeta=0$ garbled from the late one. As $\zeta$ increases, $M,N,t,r$ stay fixed, $U$ weakly decreases and $L$ weakly increases. Consequently $F$ and $G$ weakly increase, $Q$ and $\bar d$ weakly decrease, and every strict cost window shrinks by set inclusion. The entire weak-optimum set also shrinks, including degeneracies. There is no claim that the width decreases strictly, that every purchase rate is monotone, or that these conclusions hold when the late experiment or physical cost changes with reset.
+
+For fixed $k,d$, a nonempty strict window exists exactly when
+\begin{equation}
+ W(q_+(\zeta);k)>R,\qquad
+ R=\max\{M+d/t,\ N+rd/t\}.\label{eq:Rreset}
+\end{equation}
+For $R<B$, let
+\begin{equation}
+ v_R=\begin{cases}
+ [R-\ell(1+\delta b_L)]/S,&R\leq V_2(t_-),\\
+ [R/(1+\delta)-\ell]/\Delta,&R\geq V_2(t_-),
+ \end{cases}\qquad q_R=\min\{v_R,(R+k)/B\}.\label{eq:inverse}
+\end{equation}
+Then existence is exactly $q_+(\zeta)>q_R$, or
+\begin{equation}
+ \zeta<\frac{q_+-q_R}{q_+-p_0},\quad 0\leq\zeta\leq1.\label{eq:zetacrit}
+\end{equation}
+A nonpositive right side gives the empty set; equality gives no strict optimum. If $R\geq B$, the strict set is empty.
+\end{proposition}
+\begin{proof}
+Correct conditioning makes $q_+(\zeta)$ decrease to $p_0$ and $q_-(\zeta)$ increase to it, with probabilities $t,r$ unchanged. The function $W$ is nondecreasing by its displayed affine branches. This proves the stated cutoff movements directly from (\ref{eq:FGQ}) and (\ref{eq:dbar}). For the full weak set, $f(p)=[W(p;k)-K]_+$ is convex. The two-point posterior distribution is contracted toward its unchanged mean as reset grows, so $E_af$ weakly decreases. Formally, for $\zeta_2>\zeta_1$ it is the mean-preserving contraction with factor $(1-\zeta_2)/(1-\zeta_1)$; Jensen's inequality and $f(p_0)\leq E_af$ prove the comparison. Only $J_T$ changes; all three competitors stay fixed. Weak optimality at the larger reset therefore implies weak optimality at the smaller one. The garbling premise continues to hold under further contraction.
+
+Rearranging $F<Q$ and $G<Q$ yields (\ref{eq:Rreset}). For $R\geq0$, solving the positive branches of (\ref{eq:piecewise}) gives the threshold $v_R$ such that $V_2(p)>R$ exactly when $p>v_R$; at $R=0$ use $v_0=p_*$. Certification exceeds $R$ exactly when $p>(R+k)/B$. The union of these two strict upper intervals has threshold $q_R$. Substituting the affine reset posterior proves (\ref{eq:zetacrit}). Since $R\geq M=W(p_0;k)$, the strict existence test always fails at $\zeta=1$. Complete information bounds $W\leq B$, proving the remaining empty case.
+\end{proof}
+
+For the baseline one can avoid even the inverse notation. The entire upper posterior range lies in the middle positive branch of $V_2$, giving
+\begin{align}
+ U(\zeta;k)&=\max\{u-(377/850)\zeta,\ v-k-(247/850)\zeta\},\label{eq:Ureset}\\
+ \zeta_{\rm crit}&=\max\left\{\frac{u-R}{377/850},\frac{v-k-R}{247/850}\right\}.\label{eq:zetabase}
+\end{align}
+The strict window exists exactly for $0\leq\zeta\leq1$ with $\zeta<\zeta_{\rm crit}$. The certificate branch changes at $k=\kappa_++(13/85)\zeta$. Its different slope matters: reset does not merely multiply a precomputed information premium. At $k=.15,d=.01$, $R=.3234117647\ldots$ and $\zeta_{\rm crit}=.6785425101\ldots$; the boundary is excluded. The actual admissible $K$ interval at each reset is still (\ref{eq:window}) using (\ref{eq:Ureset}), not every $K$ below this reset threshold.
+
+More generally these results provide a finite exact partition in primitive likelihoods and reset persistence. Compute $t,q_\pm,p_b^\pm$ by Bayes' rule. Partition $(\zeta,k)$ at $q_\pm(\zeta)=p_*,t_-$, $k=D(q_\pm(\zeta))$, and $k=D(p_0),D(p_b^\pm)$. On each posterior branch all these boundaries are affine, and $L,M,U,N$ are affine. Intersect their cells with the linear inequalities in the weak partition or (\ref{eq:window}). This is a constructive finite certificate for any fixed primitive likelihoods satisfying the premises, including empty cells and equality faces. It does not assert a single global ordering of certificate thresholds across arbitrary primitives.
+
+At $\zeta=1$, $J_T=J_D-d$: tools-first cannot be strictly optimal and is strictly dominated by direct entry if $d>0$. If $d=0$, it is weakly optimal for all $K$ when $N=M$, and exactly for $K\geq N$ otherwise. These statements follow directly from $J_T=[M-K]_+$ and $J_F=N-K$. Known effective repair and public revealing validation retain the separate nulls of Proposition~\ref{prop:impossible}. Compulsory completion retains the nonpositive equal-cost difference $A-N$: none of the strict selective window survives when abandonment is prohibited.

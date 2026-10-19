@@ -1,0 +1,23 @@
+symbol,definition,unit,information_or_role
+theta0,latent pre-remediation type,H or L,prior known; realization unknown
+theta1,persistent final effectiveness,H or L,unknown absent credible certificate
+p0,common original prior,probability,known to planner and user
+zeta,independent type-redraw probability on remediation,probability,known; redraw realization unobserved
+aH aL,shadow-pilot likelihoods given old type,probability,known; no production payoff
+bH bL,use success likelihoods given final type,probability,known; realization conditional on latent type
+c,cost per productive use,normalized surplus,known; success pays one
+delta,discount between productive opportunities,factor,known; not the zero implementation interest convention
+K,physical remediation cost,common date-2 surplus,avoidable after tools-first diagnostic
+dT dF,assigned diagnostic and tool setup cost,common date-2 surplus,equal in benchmark; includes pilot labor
+k,fully revealing entry certificate fee,common date-2 surplus,real cost; all outcomes mandatorily public
+V2,optimal two-task value without external certificate,expected surplus,solved exactly; includes user experimentation
+W,entry optimized value including certificate,expected surplus,"max(V2,pB-k)"
+O,avoidance option from screening before remediation,expected surplus,E_a positivepart(K-W)
+I,continuation value of better diagnostic,expected surplus,E_b W-E_a W; nonnegative under garbling
+Delta,bH-bL probability difference,probability,distinct from equal assigned pilot cost d
+d,common assigned pilot cost dT=dF,common date-2 surplus,nonnegative; all three alternatives retained
+L M U,optimized entry values at early failure prior and early success,expected surplus,functions of certificate fee and correctly conditioned reset
+N,expected entry value after late diagnostic,expected surplus,all late signal histories and certificate decisions
+F G Q,cost cutoffs (N-tU)/r (M-tU+d)/r U-d/t,physical cost,strict all-policy window max(F G)<K<Q under garbling
+dbar,t min(U-M (U-N)/r),pilot cost,strict window nonempty iff 0<=d<dbar
+zeta_crit,838/1235 at baseline k=.15 d=.01,reset probability,existence threshold; fixed K must also satisfy cost window

@@ -1,0 +1,26 @@
+variable,unit,timing,definition,role
+team_id,team,baseline,pseudonymous locked identifier,randomization unit
+block,team,baseline,site/defects/size/outcome block,assignment control
+assignment,team,baseline,F_first or tools_first,ITT exposure
+baseline_capacity,team,baseline,fixed eligible capacity,outcome denominator
+contribution,team-week,weekly,operating surplus in fixed real prices,primary endpoint
+rollout_cost,team-week,weekly,installation/training/remediation/downtime cost,NPV
+quality_score,team-week,weekly,frozen field-test/freshness rate,fidelity
+tool_hours,team-week,weekly,accessible hours,availability
+recommendations_shown,team-week,weekly,count with eligibility denominator,receipt
+tasks_attempted,team-week,weekly,eligible attempts,use
+feedback_seen,team-week,weekly,scored experiences actually observed,experience
+behavioral_reliance,common task,baseline/phase ends/endpoint,incentivized request/weight/choice,mechanism secondary
+expected_accuracy,common task,before benchmark,elicited expected accuracy,belief proxy
+trust_survey,person/team aggregate,baseline/phase ends,locked repeated scale,secondary proxy
+error_loss,common task,endpoint,blinded scoring rule,decision quality
+abandonment,team-week,weekly,no voluntary use over two eligible weeks,secondary
+staff_count,team-week,weekly,roster and turnover,composition
+training_hours,team-week,weekly,by role,implementation
+missing_reason,team-week,weekly,closure/unrecorded/transfer/refusal/true-zero,missingness
+rescue_assignment,team,after week16,optional independent validation assignment,separate rescue ITT
+expected_final_success,common task,before/after physical repair,elicited final-workflow expected success,rational-mechanism measurement; not estimated
+repair_reset_belief,person/team,before/after physical repair,elicited belief that repair removes old-type relevance,knowledge of remediation mapping
+validation_fee_delay,team,certificate offer,real resource fee and actual turnaround,choice-set fidelity
+validation_precision_disclosure,team,certificate receipt,verified precision and mandatory full results disclosure,credible-information treatment fidelity
+physical_repair_decision,team,adaptive rule decision date,repair or stop under original assignment,retain stopped units in policy ITT

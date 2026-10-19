@@ -1,0 +1,159 @@
+\section{Rational learning after physical remediation}\label{sec:rational}
+\subsection{What is known, and what a repair does not reveal}
+There are two persistent potential types of the completed workflow, $\theta_1\in\{H,L\}$. Conditional on the type, an operational recommendation succeeds with probability $b_H$ or $b_L$, independently over tasks. A success pays one, a failure pays zero, and each use costs $c$, where
+\[
+ 0<b_L<c<b_H<1,\qquad m(p)=b_L+(b_H-b_L)p-c.
+\]
+The safe manual decision has incremental payoff zero and reveals nothing about the tool. Physical remediation costs $K\geq0$. It installs the same technical component under either sequence; without it, production remains manual. A pre-remediation shadow pilot is possible but has no operating payoff. This separates diagnostic experience from actual production and makes ``no remediation'' a well-defined feasible policy. The planner and user are risk neutral, have the same payoff and prior, and observe every pilot, implementation action, and certificate. There is no hidden planner information, transfer motive, or assumed irrational distrust.
+
+To specify uncertain effectiveness and persistence, let $\theta_0$ be the pre-remediation type with prior $\Pr(H)=p_0\in(0,1)$. A pre-remediation pilot succeeds with known probabilities $a_H>a_L$ conditional on $\theta_0$. Following physical remediation, with known probability $1-\zeta$ the persistent type remains $\theta_0$; with probability $\zeta$ it is independently redrawn from the original prior $p_0$. The realized redraw and resulting effectiveness are not directly observed. The completed system then retains $\theta_1$ over the production horizon. Its unconditional prior is still $p_0$. The parameters $(a_H,a_L,b_H,b_L,c,\zeta,K)$ and conditional independence structure are common knowledge. In particular, users know the difference between pre- and post-remediation performance; they never use the old likelihood to interpret a new observation.
+
+For an early history $h$ with posterior $q(h)=\Pr(\theta_0=H\mid h)$, correct conditioning on observed physical installation gives
+\begin{equation}
+ p(h)=\Pr(\theta_1=H\mid h,F)=\zeta p_0+(1-\zeta)q(h).\label{eq:reset}
+\end{equation}
+Thus $q_0$ and $q_1$ are not known realized performance levels in this model. Their counterparts are the known conditional success probabilities $a_{\theta_0}$ and $b_{\theta_1}$; the types are unknown. Remediation can change average quality without making its realized effectiveness public. No assumption says every realization of remediation improves every type; the numerical baseline $\zeta=0$ does have $a_H<b_H$ and $a_L<b_L$.
+
+For a single early pilot, define $\bar a=p_0a_H+(1-p_0)a_L$. As an experiment about the \emph{final} type, its effective likelihoods are
+\begin{equation}
+ A_H=(1-\zeta)a_H+\zeta\bar a,\qquad
+ A_L=(1-\zeta)a_L+\zeta\bar a.\label{eq:effective}
+\end{equation}
+They follow by summing over the joint old/final type distribution. Explicitly,
+\[
+\begin{array}{c|cc}
+ &\theta_1=H&\theta_1=L\\\hline
+\theta_0=H&p_0(1-\zeta+\zeta p_0)&\zeta p_0(1-p_0)\\
+\theta_0=L&\zeta p_0(1-p_0)&(1-p_0)(1-\zeta+\zeta(1-p_0)).
+\end{array}
+\]
+Dividing the first column's signal-weighted entries by its marginal $p_0$ gives $A_H$, and dividing the second by $1-p_0$ gives $A_L$. Summing over a history before the redraw gives (\ref{eq:reset}) by the law of total probability. Bayes' rule with these likelihoods gives exactly (\ref{eq:reset}). At $\zeta=1$, the early signal is uninformative about the final system, even though it may have been informative about the old one. ``A repair was installed'' and ``the repaired workflow is effective'' are distinct observations.
+
+\subsection{Endogenous experimentation: an exact two-task solution}\label{sec:bellman}
+There are two production opportunities, at common calendar dates 2 and 3, with discount factor $\delta\in(0,1)$. At each opportunity the user chooses the safe decision or use. An observed success or failure updates the final-type posterior. Define the predictive success probability $\bar b(p)=pb_H+(1-p)b_L$ and the Bayesian updates
+\begin{equation}
+ p^+=\frac{pb_H}{\bar b(p)},\qquad
+ p^-=\frac{p(1-b_H)}{1-\bar b(p)}.\label{eq:bayes}
+\end{equation}
+The one-task value is $V_1(p)=[m(p)]_+$, with $[x]_+=\max(x,0)$. Without an external certificate, the two-task value is
+\begin{equation}
+ V_2(p)=\left[m(p)+\delta\{\bar b(p)V_1(p^+)+(1-\bar b(p))V_1(p^-)\}\right]_+.\label{eq:v2}
+\end{equation}
+The maximization here is over a real information-producing action, not an imposed willingness threshold. Choosing safe now and using later has value $\delta[m(p)]_+$ and is weakly dominated: when $m(p)>0$, use now yields at least $(1+\delta)m(p)$ by Jensen's inequality; when $m(p)\leq0$, safe-now/safe-later gives zero. The finite horizon is explicit, not evidence of infinite persistence.
+
+\begin{proposition}[A Bayesian experimentation boundary]\label{prop:bayes}
+Let $h=b_H-c>0$, $\ell=b_L-c<0$, $\Delta=b_H-b_L$, and
+\begin{align}
+ S&=\Delta+\delta(b_Hh-b_L\ell),&
+ p_*&=\frac{-\ell(1+\delta b_L)}{S},\\
+ t_-&=\frac{-(1-b_L)\ell}{(1-b_H)h-(1-b_L)\ell}.
+\end{align}
+Then $0<p_*< (c-b_L)/\Delta<t_-<1$, and the exact solution is
+\begin{equation}
+ V_2(p)=\begin{cases}
+ 0,&0\leq p\leq p_*,\\
+ \ell(1+\delta b_L)+Sp,&p_*<p<t_-,\\
+ (1+\delta)(\ell+\Delta p),&t_-\leq p\leq1.
+ \end{cases}\label{eq:piecewise}
+\end{equation}
+Except at ties, users abstain at the first opportunity if $p<p_*$ and experiment if $p>p_*$. In particular, some negative-current-return experiments are optimal because they can improve the last decision.
+\end{proposition}
+\begin{proof}
+Multiplying terminal payoffs by their predictive probabilities removes the Bayes denominators. The continuation term is
+\[
+ [pb_Hh+(1-p)b_L\ell]_+
+ +[p(1-b_H)h+(1-p)(1-b_L)\ell]_+.
+\]
+Both bracketed affine expressions increase strictly in $p$. Their zeroes are $t_+=-b_L\ell/(b_Hh-b_L\ell)$ and $t_-$, respectively. At the myopic zero $t_0=-\ell/\Delta$, a success raises the posterior above $t_0$ and a failure lowers it, so $0<t_+<t_0<t_-<1$. The untruncated use value $Q_2$ is continuous and strictly increasing. At $t_+$ its continuation terms are zero and $m(t_+)<0$; at $t_0$, its success continuation term is strictly positive. Its unique zero is therefore in $(t_+,t_0)$, where only the success continuation term is positive. Solving the affine equation there gives $p_*$. Below it, use and any delayed use are dominated by zero. Between $p_*$ and $t_-$ only success leads to terminal use. Above $t_-$, both outcomes lead to terminal use, and the martingale property of posterior means gives $Q_2=(1+\delta)m(p)$. These arguments give every branch and the boundary inequalities.
+\end{proof}
+
+\subsection{Costly credible validation and rational non-use}\label{sec:certificate}
+After physical remediation and any assigned pilot, but before date 2, a user can buy a credible independent certificate for fee $k\geq0$. The certificate perfectly reveals $\theta_1$ and is publicly and mandatorily disclosed, including unfavorable results. Its fee is a real verification cost, not a transfer. It is available only in this entry window: its operational turnaround after date 2 would exceed the remaining task, so a mid-horizon purchase is not in the feasible menu. This restriction matters; an additional later validation option would change (\ref{eq:v2}) and is not silently included. Both sequences have exactly the same entry option. The planner can fund it, but with aligned payoffs funding does not alter its optimal purchase rule.
+
+Given $H$, optimal use at both dates yields $B=(1+\delta)(b_H-c)$; given $L$, safe decisions yield zero. Thus the optimal entry value, including endogenous validation, is
+\begin{equation}
+ W(p;k)=\max\{V_2(p),pB-k\}.\label{eq:W}
+\end{equation}
+A self-reported managerial claim that remediation worked is not a certificate and supplies no extra signal under these information assumptions.
+
+\begin{proposition}[Validation region and optimal abstention]\label{prop:validate}
+The value of perfect information before its fee is $D(p)=pB-V_2(p)\geq0$. It is continuous, concave, and piecewise affine, with breakpoints among $0,p_*,t_-,1$ and endpoint values zero. A certificate is strictly preferred exactly where $D(p)>k$. This set is an interval or empty; its boundaries are obtained by solving the affine equations $D(p)=k$ on those pieces. Its maximal feasible fee is $\max\{D(p_*),D(t_-)\}$. Without purchase, private abstention is optimal exactly when $p\leq p_*$; with the entry option, abstention is optimal when both $p\leq p_*$ and $pB\leq k$.
+\end{proposition}
+\begin{proof}
+For every fixed contingent two-task decision rule, its ex-ante expected payoff is affine in the prior. Their maximum $V_2$ is convex, also directly visible from (\ref{eq:piecewise}). Perfect information can reproduce any such rule after learning the type, so $pB\geq V_2(p)$. Subtracting a convex function from the affine $pB$ makes $D$ concave. Formula (\ref{eq:piecewise}) gives its breakpoints; a piecewise affine function achieves its maximum at one of its interior breakpoints or endpoints. The endpoints are zero. Comparing the two choices in (\ref{eq:W}) yields the purchase region. Finally $W=0$ if and only if both nonnegative outside-option value $V_2$ and certificate net value are nonpositive. At equality there can be indifferent nonzero actions; throughout we use safe decisions as the zero-value tie-break.
+\end{proof}
+
+A poor early outcome can therefore survive \emph{correctly understood} common physical remediation: it lowers $q(h)$ about a persistent component, (\ref{eq:reset}) leaves the final posterior low, and the user optimally rejects both risky experimentation and expensive certification. For example, take $(b_H,b_L,c,\delta)=(.9,.1,.5,.9)$, $p_0=.5$, $(a_H,a_L)=(.6,.08)$, $\zeta=0$ and $k=.35$. Then $p_*=.375862\ldots$. An early failure yields $p=.4/(.4+.92)=.303030\ldots$, so $V_2(p)=0$ and $pB-k<0$. Even when the realized final type happens to be $H$, abstention is optimal given the information. This is a false negative conditional on the realized type, not a violation of Bayesian rationality or an ex-ante welfare loss caused by information.
+
+For completeness, a limited infinite-horizon statement shows that the logic need not rely solely on two tasks. Allow entry validation at any date at the same fee and let $A_\infty=(b_H-c)/(1-\delta)$. If
+\begin{equation}
+ m(p)+\delta pA_\infty\leq0,\qquad pA_\infty-k\leq0,\label{eq:infbound}
+\end{equation}
+then never using or validating is optimal, and beliefs remain unchanged forever in the absence of external observations. To prove this, any first use earns $m(p)$ and its continuation is bounded above by learning the type perfectly for free next period, with value $\delta pA_\infty$. Any first validation has net value at most $pA_\infty-k$. Safe waiting changes neither the posterior nor opportunities, so delaying either nonpositive first informative action cannot give positive value. This bounds all feasible policies, while perpetual safe play attains zero. These are sufficient conditions, not a solved general infinite-horizon cutoff. In the synthetic parameters above, three early failures give $p=.075947\ldots$, first-use upper bound about $-.0658$, and certification net value about $-.0462$ at $k=.35$. The event occurs with positive probability even for a truly effective type. The infinite-horizon certificate menu is explicitly larger than the entry-only two-task menu.
+
+\section{When Bayesian conditioning rules out a sequence scar}\label{sec:impossibility}
+\begin{proposition}[Reset, public evidence, and the value of extra information]\label{prop:impossible}
+(i) If $\zeta=1$, histories before remediation do not change the posterior of final effectiveness. If successful repair instead makes the final success probability a publicly known $b>c$, all users use at both dates regardless of old outcomes. (ii) A fully revealing public certificate eliminates posterior differences about $\theta_1$: after a favorable certificate both histories induce use, and after an unfavorable one both induce safe decisions. (iii) With identical physical technology, costs, future opportunities and a common correctly specified prior, any free additional pre-decision experiment weakly increases ex-ante optimal continuation value. It cannot by itself create a negative expected ``trust scar.'' (iv) The order of a fixed set of conditionally independent signals about a fixed type is irrelevant at the common final decision date, provided signal identities and their correct likelihoods are retained and no earlier irreversible decisions differ.
+\end{proposition}
+\begin{proof}
+For (i), set $\zeta=1$ in (\ref{eq:reset}); known $b$ leaves a positive known net payoff on each use. For (ii), posterior beliefs become 1 or 0, at which actions follow from $b_H>c>b_L$. For (iii), ignoring the extra experiment replicates the original feasible strategy. Equivalently, $W$ is convex as the maximum of convex $V_2$ and an affine certificate option, so $E[W(p_S;k)]\geq W(E[p_S];k)=W(p_0;k)$. For (iv), posterior odds equal prior odds times the product of the correctly labeled likelihood ratios, a product invariant to permutation. With the same final feasible actions and costs, the optimized value and action correspondences coincide.
+\end{proof}
+These nulls do not require all realized decisions to improve after information. They distinguish ex-ante optimal value from histories conditional on bad outcomes and from the realized output of high-type units. Nor does a physical repair with an uncertain residual component satisfy the known-success condition in (i). A public installation announcement is not free proof of success. No non-Bayesian primacy effect or hard behavioral use threshold is required for \emph{conditional} non-use, but neither conditional non-use nor physical capital equality establishes an aggregate causal penalty from receiving more information.
+
+\section{The joint choice of rollout, remediation and validation}\label{sec:planner}
+\subsection{A menu with equal assigned diagnostic exposure}
+We now allow the planner to abandon physical remediation altogether. Both candidate ordered policies assign \emph{one} shadow diagnostic, at the same real resource cost $d_T=d_F$ in the equal-cost comparison. At date 0, tools-first installs its pilot setup and runs the old-system diagnostic, costing $d_T$. At date 1, after its result, it can pay $K$ for physical remediation or stop. Foundations-first pays $K$ at date 0 and runs its completed-system diagnostic at date 1 for cost $d_F$. The early setup and later diagnostic costs include all tool-component and pilot labor costs. The production opportunities in both policies remain dates 2 and 3. There is no other mandatory common trial in this particular benchmark. Optional production experimentation and certificate purchases remain endogenous and are costed in $W$.
+
+The two short implementation phases are valued with zero interest; $K,d_T,d_F$ are in common date-2 real units. Thus the comparison excludes financing gains from deferring $K$. A literal up-front escrow with unused funds returned at par implements the same convention. A positive phase discount factor would add explicit cost-timing terms but would no longer isolate the comparison below. Equal assigned diagnostic counts do not mean equal precision: the diagnostic can be more informative after remediation. Nor do they mean equal realized use, which is an outcome of the model.
+
+A direct option installs remediation without an assigned diagnostic and lets the user choose ordinary experimentation or a certificate at $p_0$; the planner may instead do nothing. This direct option is included so that a pilot is never assumed necessary merely to favor either sequence. A separate compulsory-completion comparison forces both ordered policies to install remediation, removing the tools-first stopping option.
+
+For any binary diagnostic experiment $j$ about the final type, write $E_j f(p_j)$ for its predictive expectation. The early experiment $a$ has likelihoods $(A_H,A_L)$ from (\ref{eq:effective}); the completed-system experiment $b$ has $(b_H,b_L)$. Assume in the diagnostic-dominance comparison that $a$ is a garbling of $b$. For binary signals this is an explicit restriction: there must be $r,s\in[0,1]$ with
+\begin{equation}
+ A_H=r+(s-r)b_H,\qquad A_L=r+(s-r)b_L.\label{eq:garbling}
+\end{equation}
+An observer can construct the old signal by reporting a new-system success as a success with probability $s$, and a new-system failure as a success with probability $r$. Mere lower success probabilities do not by themselves imply this information ordering. The numerical example satisfies (\ref{eq:garbling}) with $r=.015,s=.665$ when $\zeta=0$; increasing $\zeta$ further garbles the early experiment.
+
+\begin{proposition}[Complete finite-menu planner solution]\label{prop:joint}
+For a known prior $p_0$, entry verification fee $k$, and remediation cost $K$, define
+\begin{align}
+ J_0&=0, & J_D&=[W(p_0;k)-K]_+,\\
+ J_T&=-d_T+E_a[W(p_a;k)-K]_+, &
+ J_F&=-K-d_F+E_bW(p_b;k).\label{eq:menu}
+\end{align}
+The planner chooses the largest of these four values. Under tools-first, remediation occurs exactly when $W(p_a;k)>K$, with safe stopping at ties. After remediation, validation occurs exactly when $D(p_a)>k$; otherwise the user follows Proposition~\ref{prop:bayes}. The same entry rule applies after the foundations-first pilot. Equations (\ref{eq:piecewise}), (\ref{eq:W}) and (\ref{eq:menu}) give a closed finite solution for every parameter value in the stated domain. In particular, $K\geq B$ makes no remediation optimal if pilot costs are nonnegative.
+\end{proposition}
+\begin{proof}
+After any given diagnostic the sunk pilot cost cannot affect the remediation decision. If remediation is not purchased, incremental production is zero; if it is purchased, the best attainable value is $W-K$. Taking their maximum and the predictive expectation yields $J_T$. Under foundations-first, $K$ is already sunk when the diagnostic is seen; afterward the user can choose safe decisions, use, or certification, all represented in $W$, yielding $J_F$. The direct option has the same repair comparison at the original prior. The outer maximum is exhaustive over the declared menu. No new decision can occur between its listed stages, so backward induction is complete. Finally, complete information bounds $W(p;k)\leq pB\leq B$ for $k\geq0$; if $K\geq B$, the direct option is zero, tools-first at most $-d_T$, and foundations-first at most $-d_F$.
+\end{proof}
+
+\subsection{The screening-versus-diagnosis frontier}
+\begin{proposition}[Equal-exposure sequencing decomposition]\label{prop:frontier}
+Let
+\begin{equation}
+ O(K,k)=E_a[K-W(p_a;k)]_+,
+ \qquad I(k)=E_bW(p_b;k)-E_aW(p_a;k).
+\end{equation}
+Then the exact policy comparison is
+\begin{equation}
+ J_T-J_F=(d_F-d_T)+O(K,k)-I(k).\label{eq:frontier}
+\end{equation}
+If (\ref{eq:garbling}) holds, $I(k)\geq0$. With equal pilot costs, tools-first beats foundations-first exactly when the option to avoid sunk remediation cost exceeds the value of the better completed-system diagnostic. If both policies must complete remediation, $O$ disappears and tools-first cannot be strictly better at equal costs under this information ordering. These are comparisons between the two ordered policies; a direct option or no remediation can dominate both. The adaptive menu deliberately relaxes equality of realized final physical expenditure: some tools-first histories do not remediate. Its screening term is therefore not evidence of persistence among organizations forced to hold the same final resources. Conditioning a field comparison on completed repair would select on a policy-dependent outcome. The compulsory-completion result is the appropriate matched-final-bundle benchmark.
+\end{proposition}
+\begin{proof}
+The identity $[W-K]_+=W-K+[K-W]_+$ in $J_T$ gives (\ref{eq:frontier}) by cancellation. The garbling condition permits an observer of $b$ to simulate $a$ and follow every $a$-contingent action, including the certificate choice. Thus better information weakly increases optimized expected continuation value; equivalently apply conditional Jensen to convex $W$, giving $I\geq0$. When completion is compulsory, $J_T^{\rm comp}=-d_T-K+E_aW$, so its difference from $J_F$ is $d_F-d_T-I$ and contains no stopping term. This proves all claims without an affine belief law or feedback-cessation assumption.
+\end{proof}
+The comparison goes beyond an exogenous geometric waiting calculation. Better data can improve the \emph{informativeness of diagnosis}, which favors foundations-first; diagnosing before spending can avoid a sunk repair, which favors tools-first. Endogenous certification changes both terms, so a universal maturity ordering still does not follow. At zero verification fee, $W(p;0)=pB$, making $I=0$ by the posterior martingale property. Screening can remain valuable before paying $K$, but pilots may then be dominated by direct remediation and immediate verification. Cheap credible information can change the optimum from an ordered pilot to direct repair; this is an explicitly solved policy substitution, not a psychological trust-repair claim.
+
+The behavioral tools-first activation advantage in the adaptive-willingness benchmark relies on extra early evidence. That advantage disappears in the equal-count behavioral comparison retained below. In the rational compulsory-completion comparison here, no exposure-based engagement premium remains either: better diagnostic precision weakly favors foundations-first. Tools-first can nevertheless be optimal in the adaptive menu because a real physical expenditure is avoidable. These mechanisms, estimands and cost conventions are distinct.
+
+\input{cost_regions.tex}
+
+\section{Solved synthetic rational examples and verification}\label{sec:rationalnumbers}
+Every number in this section is synthetic and computed from declared probabilities, not fitted to firms. The baseline uses $p_0=.5$, $(a_H,a_L)=(.6,.08)$, $(b_H,b_L)=(.9,.1)$, $c=.5$, $\delta=.9$ and $d_T=d_F=.01$. With $\zeta=0,k=.15$, increasing $K$ from .10 to .20 changes the best policy from foundations-first to tools-first. At $K=.20$, lowering the verification fee to .02 makes direct repair optimal. At $K=.80$, the planner declines remediation. These comparisons include both the abandoned and certified histories and do not condition on favorable signals.
+
+\input{output/rational_policy_table.tex}
+
+At $K=.20,k=.15,\zeta=0$, the early-pilot success and failure posteriors are $.882353$ and $.303030$. Their entry values are approximately $.587529$ and $.080303$: after failure the user would buy a certificate if remediation were already sunk, but the planner declines to spend $.20$ on that continuation. The screening option is $.079000$ and the better-diagnosis value $.051240$, leaving a tools-first advantage of $.027760$ between ordered policies. This illustrates why post-remediation optimal private validation must be accounted for before computing a planner's repair cutoff.
+
+The reproduction script independently enumerates all two-task action rules and compares them with the analytical Bellman value over 3,000 random parameter sets. It checks 3,000 posterior-reset and planner-decomposition instances, the information-order inequality, the known-reset null and 396 extra-information inequalities. The main policy characterization is the analytic cost partition in Section~\ref{sec:regions}. The earlier 101-by-101 grid is retained only as a supplementary visualization in the executable archive and is not used to prove any region. The new exact-rational verification script checks all baseline fee cells, cost boundaries and representative interior points, including zero-cost ties and reset thresholds; its actual check counts and exact witnesses are recorded in \texttt{cost\_region\_verification.json}. Errors are at floating-point precision and are recorded in \texttt{rational\_verification.json}. These checks verify calculations within the assumptions; they do not establish novelty, correctness of a behavioral mechanism in firms, or empirical validity. The older generic carryover design simulation is retained later strictly as an estimator stress test and is not a structural validation of any rational or behavioral trust model.
