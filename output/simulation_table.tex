@@ -1,0 +1,11 @@
+\begin{table}[ht]\centering\small
+\caption{Synthetic experiments: selected results at 96 independent teams.}
+\begin{tabular}{lrrrr}\toprule
+Scenario & Truth & Coverage & Power / size & Naive coverage\\\midrule
+null & 0.000 & 0.953 & 0.048 & 0.754\\
+duration only & -0.029 & 0.952 & 0.050 & 0.731\\
+transient carryover & -0.002 & 0.950 & 0.050 & 0.721\\
+persistent carryover & 0.221 & 0.951 & 0.169 & 0.736\\
+\bottomrule\end{tabular}
+\par\smallskip\parbox{.92\linewidth}{\footnotesize Coverage refers to the known policy truth. Power / size is rejection of zero; only the null row measures size. Naive intervals ignore within-team dependence. Each cell uses 2,000 synthetic experiments.}
+\end{table}

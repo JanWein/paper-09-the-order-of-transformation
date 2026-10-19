@@ -1,0 +1,23 @@
+{
+  "seed": 9172026,
+  "random_bellman_checks": 3000,
+  "random_policy_checks": 3000,
+  "extra_information_checks": 396,
+  "posterior_mapping_max_error": 2.220446049250313e-16,
+  "bellman_max_error": 2.220446049250313e-16,
+  "decomposition_max_error": 3.3306690738754696e-16,
+  "pstar": 0.3758620689655172,
+  "finite_horizon_tasks": 2,
+  "real_observations": 0,
+  "entry_certificate_only": true,
+  "infinite_bound_finite_checks": [
+    1,
+    2,
+    5,
+    10,
+    30,
+    60
+  ],
+  "convexity_grid_points": 10001,
+  "python": "3.12.14"
+}

@@ -1,0 +1,11 @@
+{
+  "seed": 90172026,
+  "replications_per_cell": 2000,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "max_algebra_error": 1.9081958235744878e-16,
+  "probe_boundary_checks": 60,
+  "real_observations": 0,
+  "interpretation": "All numerical outputs are synthetic."
+}

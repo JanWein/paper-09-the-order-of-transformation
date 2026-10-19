@@ -1,0 +1,17 @@
+{
+  "revision": "CENTRAL_R2_20261017_P09",
+  "real_observations": 0,
+  "arithmetic": "Python fractions.Fraction, exact",
+  "baseline_cost_boundary_and_interior_checks": 20224,
+  "baseline_strict_cases": 1088,
+  "baseline_weak_cases": 1978,
+  "additional_primitive_checks": 4996,
+  "open_box_corner_checks": 8,
+  "reset_contraction_checks": 240,
+  "reset_critical_exact": "838/1235",
+  "reset_critical_decimal": 0.6785425101214575,
+  "pilot_ceiling_low": "247/2500",
+  "pilot_ceiling_high": "241/1650",
+  "python": "3.12.14",
+  "scope": "Finite exact boundary/interior verification of analytic proof; no empirical data and no proof of global novelty."
+}
